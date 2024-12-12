@@ -1,0 +1,86 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta name="author" content="matthew neward"> 
+    <title>calculator</title>
+</head>
+<body> 
+    <div>
+        <script>
+            repeat=`dickbutt`
+            do{ 
+                //clean up array by setting it to zero? 
+                //let entries=0 
+                //array for entries
+                let entries=[]
+                let numOfEntries=entries.length
+                let entry=0
+
+                //ask for first number
+                entry= parseFloat(prompt(`Welcome to the calculator. Enter a number.`));
+                entries.push(entry);
+
+                //ask if user wants to add more numbers
+                let con=prompt (`you\'ve entered ${entry}. Enter another? y/n`);
+                if (con.toLowerCase()===`y`){
+                    let repeatAddingEntries=``
+                    do{
+                        //add more entries and loop.
+                        entry=parseFloat(prompt(`enter next value`));
+                        //have to break away from desired ux to meet the assignments requirements of telling the user what they've entered every entry.
+                        alert(`you\'ve entered ${entry}.`)
+                        //push entry to array
+                        entries.push(entry);
+                        //prompt to ask if there's more numbers
+                        repeatAddingEntries=prompt (`you\'ve entered ${entries.length} numbers, are there more? y/n?`)
+                    }
+                    while (repeatAddingEntries.toLowerCase()===`y`)
+                //else if incase invalid response is given
+                } else if ((con === null) || (con ===``)){
+                    alert(`error, calculator has been improporly used, please reload calculator to use again`)
+                } else {}
+                //prompt operator selector
+                let operatorSelector=prompt(`What operation would you like to perform +, -, *, /?`)
+                if (operatorSelector=== `/`) {
+                    if (entries.length!=2){
+                        alert (`division can only be done with 2 numbers on this calculator`)
+                    } else {}
+                } else {}
+
+                //calculation time... uggghhhhhh. ok loop logic, take the first entry and isolate it, then have the for loop loop equal to the length of the remaining entries... uugggggghhh
+                let answer=entries[0]
+                switch(true){
+                    case (operatorSelector===`+`):
+                        for (let i=1; i<entries.length; i++){
+                            answer+=entries[i];
+                        }
+                        break;
+                    case (operatorSelector===`-`):
+                        for (let i=1; i<entries.length; i++){
+                            answer-=entries[i];
+                        }
+                        break;
+                    case (operatorSelector===`*`):
+                        for (let i=1; i<entries.length; i++){
+                            answer*=entries[i];
+                        }
+                        break;
+                    case (operatorSelector===`/`):
+                        for (let i=1; i<entries.length; i++){
+                            answer/=entries[i];
+                        }
+                        break;
+                }
+
+                //final prompt/loop prompt
+                repeat=prompt(`you have entered ${entries.length} numbers.Your answer is ${answer}. Would you like to perform another calculation? yes/no?`)
+            }
+            while (repeat.toLowerCase()===`yes`? true : false)
+
+            alert(`Thank you for using the hal9000 calculator, have a good day`)
+        </script>
+    </div>
+</body>
